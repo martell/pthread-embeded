@@ -175,11 +175,11 @@ LIBS =
 
 #include $(PSL1GHT)/ppu_rules
 
+CC=powerpc64-ps3-elf-gcc
+CXX=powerpc64-ps3-elf-g++
 
 ifeq ($(CLEANUP_TYPE),CPPXX)
 
-CC=powerpc64-ps3-elf-gcc
-CXX=powerpc64-ps3-elf-g++
 
 pte_throw.o: pte_throw.c
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(INCLUDES) $(TARGET_ARCH) \
