@@ -179,7 +179,7 @@ CXX=powerpc64-ps3-elf-g++
 AR=powerpc64-ps3-elf-ar
 
 $(TARGET_LIB) : $(OBJS)
-	$(AR) $(TARGET_LIB) $(OBJS)
+	$(AR) r $(TARGET_LIB) $(OBJS)
 
 ifeq ($(CLEANUP_TYPE),CPPXX)
 
