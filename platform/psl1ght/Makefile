@@ -173,13 +173,13 @@ ASFLAGS = $(CFLAGS)
 LDFLAGS = 
 LIBS = 
 
-include $(PSL1GHT)/ppu_rules
+#include $(PSL1GHT)/ppu_rules
 
 
 ifeq ($(CLEANUP_TYPE),CPPXX)
 
-CC=ppu-gcc
-CXX=ppu-g++
+CC=powerpc64-ps3-elf-gcc
+CXX=powerpc64-ps3-elf-g++
 
 pte_throw.o: pte_throw.c
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(INCLUDES) $(TARGET_ARCH) \
@@ -192,7 +192,7 @@ pte_threadStart.o: pte_threadStart.c
 endif
 
 install: $(TARGET_LIB)
-	@cp -v $(TARGET_LIB) $(PSL1GHT)/ppu/lib/libpthread.a
-	@cp -v *.h $(PSL1GHT)/ppu/include
+	@cp -v $(TARGET_LIB) $(DESTDIR)/powerpc64-ps3-elf/lib/libpthread.a
+	@cp -v *.h $(DESTDIR)/powerpc64-ps3-elf/include
 	@echo "Done."
 
