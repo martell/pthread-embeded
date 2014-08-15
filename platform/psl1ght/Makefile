@@ -161,7 +161,6 @@ OS_OBJS = \
 
 OBJS = $(MUTEX_OBJS) $(MUTEXATTR_OBJS) $(THREAD_OBJS) $(SUPPORT_OBJS) $(TLS_OBJS) $(MISC_OBJS) $(SEM_OBJS) $(BARRIER_OBJS) $(SPIN_OBJS) $(CONDVAR_OBJS) $(RWLOCK_OBJS) $(CANCEL_OBJS) $(OS_OBJS)
 
-$(TARGET_LIB) : $(OBJS)
 
 
 DEPSDIR  :=      $(CURDIR)
@@ -177,6 +176,10 @@ LIBS =
 
 CC=powerpc64-ps3-elf-gcc
 CXX=powerpc64-ps3-elf-g++
+AR=powerpc64-ps3-elf-ar
+
+$(TARGET_LIB) : $(OBJS)
+	$(AR) -rv $@ $^
 
 ifeq ($(CLEANUP_TYPE),CPPXX)
 
